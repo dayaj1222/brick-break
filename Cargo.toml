@@ -2,5 +2,14 @@
 name = "brick_break"
 version = "0.1.0"
 edition = "2024"
+authors = ["Daya Joshi <dayajoshi1222@gmail.com>"]
 
 [dependencies]
+bevy = "0.17.3"
+rand = "0.8"
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
