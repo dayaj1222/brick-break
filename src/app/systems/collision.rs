@@ -1,5 +1,6 @@
 use crate::app::components::{Ball, Collidable, Paddle, Velocity};
 use crate::app::constants::BALL_RADIUS;
+use crate::app::resources::GameStates;
 use bevy::prelude::*;
 
 pub struct CollisionSystem;
@@ -25,6 +26,7 @@ fn handle_collisions(
     windows: Query<&Window>,
     mut ball_query: Query<(&mut Velocity, &mut Transform, &Collidable), With<Ball>>,
     paddle_query: Query<(&Transform, &Collidable), (With<Paddle>, Without<Ball>)>,
+    gamestate: ResMut<GameStates>,
 ) {
     let mut window_height = 0.0;
     let mut window_width = 0.0;
@@ -53,6 +55,7 @@ fn handle_collisions(
             velocity.0.y = -velocity.0.y.abs();
             transform.translation.y = window_height / 2.0 - BALL_RADIUS;
         }
+        if transform.translation.y <= -window_height / 2.0 + BALL_RADIUS {}
 
         // Paddle collision
         for (paddle_transform, paddle_collidable) in paddle_query.iter() {
