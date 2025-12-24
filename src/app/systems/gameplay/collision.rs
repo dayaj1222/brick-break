@@ -7,7 +7,10 @@ pub struct CollisionSystem;
 
 impl Plugin for CollisionSystem {
     fn build(&self, app: &mut App) {
-        app.add_systems(Update, handle_collisions);
+        app.add_systems(
+            Update,
+            handle_collisions.run_if(in_state(GameStates::Playing)),
+        );
     }
 }
 
@@ -26,7 +29,6 @@ fn handle_collisions(
     windows: Query<&Window>,
     mut ball_query: Query<(&mut Velocity, &mut Transform, &Collidable), With<Ball>>,
     paddle_query: Query<(&Transform, &Collidable), (With<Paddle>, Without<Ball>)>,
-    gamestate: ResMut<GameStates>,
 ) {
     let mut window_height = 0.0;
     let mut window_width = 0.0;

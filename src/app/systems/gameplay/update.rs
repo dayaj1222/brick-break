@@ -1,12 +1,15 @@
 use bevy::prelude::*;
 
-use crate::app::components::{Ball, Velocity};
+use crate::app::{
+    components::{Ball, Velocity},
+    resources::GameStates,
+};
 
 pub struct UpdateEntities;
 
 impl Plugin for UpdateEntities {
     fn build(&self, app: &mut App) {
-        app.add_systems(Update, update);
+        app.add_systems(Update, update.run_if(in_state(GameStates::Playing)));
     }
 }
 

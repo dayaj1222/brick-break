@@ -1,11 +1,12 @@
 use crate::app::components::{Ball, Collidable, Moveable, Paddle, Velocity};
 use crate::app::constants::{BALL_RADIUS, BALL_SPEED, PADDLE_HEIGHT, PADDLE_WIDTH};
+use crate::app::resources::GameStates;
 use bevy::{camera::visibility::RenderLayers, prelude::*};
 
 pub struct Setup;
 impl Plugin for Setup {
     fn build(&self, app: &mut bevy::app::App) {
-        app.add_systems(Startup, setup);
+        app.add_systems(OnEnter(GameStates::Playing), setup);
     }
 }
 fn setup(
@@ -23,8 +24,6 @@ fn setup(
         }
         Err(err) => println!("Error Occured {:?}", err),
     }
-    // Cameras
-    commands.spawn((Camera2d, IsDefaultUiCamera));
 
     commands.spawn((
         Camera2d,

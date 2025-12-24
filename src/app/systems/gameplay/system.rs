@@ -1,6 +1,6 @@
 use bevy::prelude::*;
 
-use crate::app::systems::{
+use crate::app::systems::gameplay::{
     collision::CollisionSystem, constraints::Constraints, input::Input, setup::Setup,
     update::UpdateEntities,
 };

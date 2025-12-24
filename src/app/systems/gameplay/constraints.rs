@@ -1,13 +1,17 @@
 use bevy::prelude::*;
 
-use crate::app::components::{Moveable, Paddle, Velocity};
+use crate::app::components::{Paddle, Velocity};
 use crate::app::constants::{PADDLE_HEIGHT, PADDLE_WIDTH};
+use crate::app::resources::GameStates;
 
 pub struct Constraints;
 
 impl Plugin for Constraints {
     fn build(&self, app: &mut App) {
-        app.add_systems(Update, check_boundaries);
+        app.add_systems(
+            Update,
+            check_boundaries.run_if(in_state(GameStates::Playing)),
+        );
     }
 }
 
