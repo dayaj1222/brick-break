@@ -23,3 +23,6 @@ pub struct Moveable;
 
 #[derive(Component)]
 pub struct Velocity(pub Vec3);
+
+#[derive(Component)]
+pub struct Block;

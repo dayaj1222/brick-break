@@ -17,8 +17,6 @@ fn input(
     keyboard_input: Res<ButtonInput<KeyCode>>,
     mut paddle: Single<&mut Transform, With<Paddle>>,
 ) {
-    // Speed of the Paddle
-
     if keyboard_input.pressed(KeyCode::KeyD) || keyboard_input.pressed(KeyCode::ArrowRight) {
         paddle.translation.x += PADDLE_SPEED * time.delta_secs();
     }

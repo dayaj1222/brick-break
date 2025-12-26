@@ -8,5 +8,6 @@ pub enum GameStates {
     #[default]
     MainMenu,
     Playing,
-    Paused,
+    Over,
+    Won,
 }

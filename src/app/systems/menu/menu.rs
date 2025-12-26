@@ -1,5 +1,6 @@
 use bevy::prelude::*;
 
+use crate::app::constants::{HOVERED_BUTTON, NORMAL_BUTTON, PRESSED_BUTTON, SCREEN_COLOR};
 use crate::app::resources::GameStates;
 
 pub struct Menu;
@@ -12,16 +13,10 @@ impl Plugin for Menu {
     }
 }
 
-#[derive(Resource)] // The button entitiy is stored to deconstruct the menu later
+#[derive(Resource)]
 struct MenuData {
     button_entity: Entity,
 }
-
-//button colors
-const SCREEN_COLOR: Color = Color::srgb(0.08, 0.08, 0.12);
-const NORMAL_BUTTON: Color = Color::srgb(0.15, 0.15, 0.15);
-const HOVERED_BUTTON: Color = Color::srgb(0.25, 0.25, 0.25);
-const PRESSED_BUTTON: Color = Color::srgb(0.35, 0.75, 0.35);
 
 fn setup_menu(mut commands: Commands) {
     let button_entity = commands
