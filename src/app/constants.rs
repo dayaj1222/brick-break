@@ -8,8 +8,8 @@ pub const BALL_RADIUS: f32 = 20.0;
 pub const BALL_SPEED: f32 = 5.0;
 
 //Blocks
-pub const COLS: i32 = 2;
-pub const ROWS: i32 = 4;
+pub const COLS: i32 = 12;
+pub const ROWS: i32 = 6;
 pub const GAP: f32 = 2.0;
 
 //Colors

@@ -14,6 +14,10 @@ Control a paddle to bounce a ball and destroy all the blocks on the screen. The 
 - **Responsive controls**: Smooth paddle movement
 - **Game states**: Menu, playing, and game over screens
 
+#### Screenshot
+![Gameplay](./screenshots/gameplay.png)
+![Game Over](./screenshots/over.png)
+
 ## Controls
 
 - **Left/Right Arrow Keys** or **A/D**: Move paddle
