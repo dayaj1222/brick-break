@@ -1,6 +1,0 @@
-{
-    "watch": ["./src"],
-    "ext": ".rs",
-    "ignore": ["target"],
-    "exec": "cargo run"
-}
